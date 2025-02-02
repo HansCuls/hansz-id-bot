@@ -37,9 +37,7 @@ bot.command('premium', premiumCommand);
 bot.command('transaction', transactionCommand);
 bot.command('panel', panelCommand);
 bot.command('domain', domainCommand);
-
-const settings = require('./settings');
-
+//
 bot.command('owner', (ctx) => {
     if (ctx.from.id !== settings.ownerId) {
         return ctx.reply("🚫 Perintah ini hanya bisa digunakan oleh owner!");

@@ -22,10 +22,10 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  /*"repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/HansCuls/hansz-id-bot"
-  },*/ //belum di repo
+  },
   "keywords": [
     "telegram",
     "bot",

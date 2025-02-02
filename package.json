@@ -1,0 +1,39 @@
+{
+  "name": "hansz-id-bot",
+  "version": "1.0.0",
+  "description": "Bot Telegram berbasis Telegraf.js dengan berbagai fitur seperti download, manajemen grup, transaksi, dan lainnya.",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
+  },
+  "author": "HanszCulsz",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.3",
+    "fs-extra": "^11.1.0",
+    "telegraf": "^4.12.2",
+    "youtube-dl-exec": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  /*"repository": {
+    "type": "git",
+    "url": "https://github.com/HansCuls/hansz-id-bot"
+  },*/ //belum di repo
+  "keywords": [
+    "telegram",
+    "bot",
+    "telegraf",
+    "nodejs",
+    "download",
+    "group-management",
+    "premium",
+    "transaction"
+  ]
+}

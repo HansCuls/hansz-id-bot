@@ -1,0 +1,48 @@
+const axios = require('axios');
+const { exec } = require('child_process');
+
+module.exports = async (ctx) => {
+    const url = ctx.message.text.split(' ')[1];
+    if (!url) return ctx.reply('❌ Masukkan URL media yang ingin diunduh.');
+
+    try {
+        // YouTube & Facebook Downloader dengan yt-dlp
+        if (url.includes("youtube.com") || url.includes("youtu.be") || url.includes("facebook.com")) {
+            ctx.reply("⏳ Sedang memproses video...");
+
+            exec(`yt-dlp -f best ${url} -o "video.mp4"`, async (error) => {
+                if (error) {
+                    return ctx.reply("❌ Gagal mengunduh video.");
+                }
+
+                await ctx.replyWithVideo({ source: "video.mp4" });
+            });
+            return;
+        }
+
+        // TikTok Downloader
+        if (url.includes("tiktok.com")) {
+            const res = await axios.get(`https://api.tikmate.app/api/lookup`, {
+                params: { url }
+            });
+
+            if (res.data.success) {
+                return ctx.replyWithVideo(res.data.videoUrl);
+            }
+            return ctx.reply("❌ Gagal mengunduh video TikTok.");
+        }
+
+        // Instagram Downloader
+        if (url.includes("instagram.com")) {
+            const res = await axios.get(`https://api.akuari.my.id/downloader/igdl?link=${url}`);
+            if (res.data && res.data.data) {
+                return ctx.replyWithVideo(res.data.data.url);
+            }
+            return ctx.reply("❌ Gagal mengunduh video Instagram.");
+        }
+
+        ctx.reply("❌ Platform tidak didukung.");
+    } catch (error) {
+        ctx.reply("❌ Terjadi kesalahan saat mengunduh media.");
+    }
+};

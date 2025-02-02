@@ -13,7 +13,6 @@ const stickerCommand = require('./commands/sticker');
 const groupCommand = require('./commands/group');
 const adminCommand = require('./commands/admin');
 const ownerCommand = require('./commands/owner');
-const welcomeCommand = require('./commands/welcome');
 const userManagementCommand = require('./commands/user_management');
 const premiumCommand = require('./commands/premium');
 const transactionCommand = require('./commands/transaction');
